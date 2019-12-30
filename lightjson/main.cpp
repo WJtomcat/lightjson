@@ -8,8 +8,12 @@
 
 #include <iostream>
 
+#include "jsonvalue.hpp"
+#include "io.hpp"
+
 int main(int argc, const char * argv[]) {
     // insert code here...
     std::cout << "Hello, World!\n";
+    lightjson::getfilechar();
     return 0;
 }

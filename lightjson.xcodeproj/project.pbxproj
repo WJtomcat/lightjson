@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		843CBB9223B9DD64000233E7 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843CBB9123B9DD64000233E7 /* main.cpp */; };
+		843CBB9A23B9DD85000233E7 /* jsonvalue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843CBB9823B9DD85000233E7 /* jsonvalue.cpp */; };
+		843CBB9D23B9EB06000233E7 /* io.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843CBB9B23B9EB06000233E7 /* io.cpp */; };
+		843CBBA023BA004C000233E7 /* parse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 843CBB9E23BA004C000233E7 /* parse.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +28,12 @@
 /* Begin PBXFileReference section */
 		843CBB8E23B9DD64000233E7 /* lightjson */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lightjson; sourceTree = BUILT_PRODUCTS_DIR; };
 		843CBB9123B9DD64000233E7 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		843CBB9823B9DD85000233E7 /* jsonvalue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = jsonvalue.cpp; sourceTree = "<group>"; };
+		843CBB9923B9DD85000233E7 /* jsonvalue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = jsonvalue.hpp; sourceTree = "<group>"; };
+		843CBB9B23B9EB06000233E7 /* io.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = io.cpp; sourceTree = "<group>"; };
+		843CBB9C23B9EB06000233E7 /* io.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = io.hpp; sourceTree = "<group>"; };
+		843CBB9E23BA004C000233E7 /* parse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = parse.cpp; sourceTree = "<group>"; };
+		843CBB9F23BA004C000233E7 /* parse.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = parse.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +67,12 @@
 			isa = PBXGroup;
 			children = (
 				843CBB9123B9DD64000233E7 /* main.cpp */,
+				843CBB9823B9DD85000233E7 /* jsonvalue.cpp */,
+				843CBB9923B9DD85000233E7 /* jsonvalue.hpp */,
+				843CBB9B23B9EB06000233E7 /* io.cpp */,
+				843CBB9E23BA004C000233E7 /* parse.cpp */,
+				843CBB9F23BA004C000233E7 /* parse.hpp */,
+				843CBB9C23B9EB06000233E7 /* io.hpp */,
 			);
 			path = lightjson;
 			sourceTree = "<group>";
@@ -120,6 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				843CBB9223B9DD64000233E7 /* main.cpp in Sources */,
+				843CBBA023BA004C000233E7 /* parse.cpp in Sources */,
+				843CBB9D23B9EB06000233E7 /* io.cpp in Sources */,
+				843CBB9A23B9DD85000233E7 /* jsonvalue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
