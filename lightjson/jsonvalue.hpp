@@ -45,13 +45,13 @@ struct json_value
     explicit json_value();
     json_value(char* begin, char* end);
     json_value(std::string value_string);
+    json_value(const char* begin);
     json_value(double value_number);
     json_value(bool value_bool);
+    json_value(value_type type);
     
-    void set_number(double value);
-    void set_bool(bool value);
-    void set_null();
-    void set_string(std::string value);
+    void add_array_item(json_value* item);
+    void add_object_item(std::string key, json_value* value);
     
     void parse_value();
     
@@ -61,16 +61,15 @@ struct json_value
 
 const char* parse_whitespace(const char* &p);
 
-json_value* parse_bool(const char* begin, json_value* output_value);
+json_value* parse_bool(const char* begin);
 
+json_value* parse_string(const char* begin);
 
-json_value* parse_string(const char* begin, json_value* output_value);
+json_value* parse_array(const char* begin);
 
-json_value* parse_array(const char* begin, json_value* output_value);
+json_value* parse_object(const char* begin);
 
-json_value* parse_object(const char* begin, json_value* output_value);
-
-json_value* parse_number(const char* begin, json_value* output_value);
+json_value* parse_number(const char* begin);
 
 json_value* parse_value(const char* begin);
 
