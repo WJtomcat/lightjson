@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <map>
 
 
 namespace lightjson {
@@ -23,7 +24,8 @@ struct json_value
         JSON_ARRAY,
         JSON_STRING,
         JSON_NUMBER,
-        JSON_BOOL
+        JSON_BOOL,
+        JSON_NULL
     };
     
     value_type type;
@@ -31,57 +33,46 @@ struct json_value
     double value_number;
     bool value_bool;
     
+    std::vector<json_value *> array_vector;
+    
+    std::map<std::string, json_value> object_map;
+    
+    char* begin;
+    char* end;
+    
+    bool parse_finished = false;
+    
     explicit json_value();
+    json_value(char* begin, char* end);
+    json_value(std::string value_string);
+    json_value(double value_number);
+    json_value(bool value_bool);
     
-    virtual ~json_value();
+    void set_number(double value);
+    void set_bool(bool value);
+    void set_null();
+    void set_string(std::string value);
+    
+    void parse_value();
+    
+    ~json_value();
 };
 
 
-struct json_array: json_value
-{
-    size_t size;
-    std::vector<json_value *> array_members;
-    
-    explicit json_array();
-    
-    void add_member(json_value* member);
-    
-    ~json_array() override;
-};
+const char* parse_whitespace(const char* &p);
+
+json_value* parse_bool(const char* begin, json_value* output_value);
 
 
-struct json_object: json_value
-{
-    size_t size = 0;
-    std::vector<std::string> keys;
-    std::vector<json_value*> values;
-    
-    explicit json_object();
-    
-    void add_member(std::string key, json_value* member);
-    ~json_object() override;
-};
+json_value* parse_string(const char* begin, json_value* output_value);
 
-struct parse_object_string
-{
-    char* buffer;
-    char* parse_top;
-    
-    char* filename;
-    
-    char* heap_top;
-    char* heap_bottom;
-    
-    std::string heap_string;
-    
-    explicit parse_object_string(const char* fname);
-    
-    json_value* parse();
-    
-    ~parse_object_string();
-};
+json_value* parse_array(const char* begin, json_value* output_value);
 
+json_value* parse_object(const char* begin, json_value* output_value);
 
+json_value* parse_number(const char* begin, json_value* output_value);
+
+json_value* parse_value(const char* begin);
 
 } // namespace lightjson
 
